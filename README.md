@@ -6,11 +6,11 @@ This package provides a ready-to-use Windows flashing tool for hardware revision
 
 ## Download
 
-[Download the ready-to-use Windows package](./CrowPanelv1.2_Warehouse_v1.2.zip)
+[Download the ready-to-use Windows package](./CrowPanelv1.2_Warehouse_v1.3.zip)
 
 ## Flashing
 
-1. Download and fully extract `CrowPanelv1.2_Warehouse_v1.2.zip`.
+1. Download and fully extract `CrowPanelv1.2_Warehouse_v1.3.zip`.
 2. Connect the panel’s **UART0 USB-C port** to a Windows computer using a data-capable USB cable.
 3. Open the extracted folder.
 4. Run `CrowPanel_P4_fast_flasher.exe`.
