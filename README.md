@@ -34,11 +34,9 @@ At startup, choose **Guided Demo** for a short presentation or **Interactive HMI
 
 ### Requirements
 
-- Elecrow CrowPanel Advanced ESP32-P4, hardware revision **V1.2**;
+- Elecrow CrowPanel Advanced ESP32-P4;
 - Windows computer;
 - data-capable USB-C cable.
-
-This package is intended for **V1.2**. Do not install it on another hardware revision.
 
 ## Flashing
 
@@ -63,5 +61,4 @@ If the panel is not detected, reconnect it through UART0, close any application 
 ## Documentation
 
 - [Project Description](description/description.md) — illustrated tour and customization options.
-- [System Overview](SYSTEM_OVERVIEW.md) — warehouse model, application behavior, and RTLS context.
 - [User Manual](USER_MANUAL.md) — navigation and practical instructions.

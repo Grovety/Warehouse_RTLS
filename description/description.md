@@ -32,6 +32,8 @@ Normal internal transfers follow **Receiving → Inbound Staging → Cold Storag
 
 The model contains **25 pallet identities, four forklifts, and two pallet trucks**. Vehicles pick up loads, transport them along warehouse routes, unload them, and receive further work. Pallets have their own state and movement history. Shipping and replenishment keep the operation running through successive cycles.
 
+Vehicles, tasks, loads, and events share one connected simulation. Vehicle movement follows warehouse routes and task execution.
+
 All warehouse movements, tasks, and events are simulated locally. The demonstration can be explored without installing a real positioning network or connecting physical tags.
 
 ## Start the Demo
@@ -46,7 +48,7 @@ Interactive HMI starts the warehouse simulation on first entry. Its primary sect
 
 Overview gives the operator one view of the warehouse, its moving vehicles, and its active work. Zones and vehicles are selectable, so the map is also the entry point to their operational details.
 
-The top strip presents **Inbound Queue**, **Active Tasks**, **Outbound Queue**, and **Exceptions**. The queue indicators describe staged inventory and waiting work in their respective areas, rather than the total number of warehouse assets.
+The top strip presents **Inbound Queue**, **Active Tasks**, **Outbound Queue**, and **Exceptions**. The queue indicators describe staged inventory and waiting work in their respective areas without counting the same pallet twice. Inbound Queue refers to Inbound Staging; Outbound Queue refers to Outbound Staging and waiting shipping work.
 
 <table width="100%">
   <tr>
@@ -112,11 +114,13 @@ The map shows physical activity; Task Queue shows the work behind it. Tasks are 
 
 The example contains two active tasks and four waiting tasks. The amber clock beside **P-357** marks delayed waiting work. A delay is an attention indicator, not an exception or a change in task priority.
 
+Normal traffic waiting does not by itself mean that a task has failed.
+
 Ordinary rows open Pallet Detail. Exception rows open their associated event. Queue membership updates as the operation progresses.
 
 ## Live Events
 
-Live Events is the history of the whole warehouse. It includes normal deliveries and other material movements as well as exceptions, allowing a problem to be understood alongside the surrounding operation.
+Live Events is the history of the whole warehouse. It includes receiving, deliveries, and shipping as well as exceptions, allowing a problem to be understood alongside the surrounding operation.
 
 [![Live Events showing deliveries in inbound storage and outbound processes](../images/live-events.png)](../images/live-events.png)
 
@@ -127,6 +131,8 @@ Movement History and Live Events serve different purposes: one follows a single 
 ## Exception Explanation: Active to Resolved
 
 Opening an exception reveals the cause and a timestamped evidence sequence. The operator can see both the conclusion and the operational facts behind it.
+
+Controlled deviations include a destination becoming unavailable because of maintenance or restricted access, delivery to the wrong destination, and a mismatch between actual storage and the assigned storage area. Resolution follows the underlying condition.
 
 The following two screenshots show the same **Storage Mismatch**, involving **P-364 / TASK-132**.
 
@@ -178,6 +184,6 @@ It can be adapted to:
 
 Start by installing the free demo and exploring its behavior on the panel. A prototype for your own workflow can then establish the required screens, data relationships, and integration points before production development.
 
-Settings, Event Replay, manual scenario selection, and production RTLS/WMS integration are not implemented features of the supplied release. Adapting the application to them is additional development work.
+Settings, map editing, Event Replay, manual scenario selection, and production RTLS/WMS integration are not implemented features of the supplied release. Adapting the application to them is additional development work.
 
 **[Discuss Your Project](mailto:hi@grovety.com)**
